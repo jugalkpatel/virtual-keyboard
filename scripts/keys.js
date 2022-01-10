@@ -1,4 +1,4 @@
-export default keyNames = [
+export default [
   { key: "Esc" },
   { key: "`", subKey: "~" },
   { key: "1", subKey: "!" },
