@@ -18,9 +18,15 @@ container.append(showText);
 
 const keyboard = new Keyboard(showText);
 
-keys.forEach(({ key: keyName, subKey }) => {
+keys.forEach(({ id, key: keyName, subKey, isModifierKey }) => {
   const randomNumber = getRandomInt(tracks.length);
   const randomTrack = "assets/" + tracks[randomNumber];
-  keyboard.createKey({ keyName, track: randomTrack, subKey });
+  keyboard.createKey({
+    id,
+    keyName,
+    track: randomTrack,
+    subKey,
+    isModifierKey,
+  });
 });
 container.append(keyboard.getKeyboard);

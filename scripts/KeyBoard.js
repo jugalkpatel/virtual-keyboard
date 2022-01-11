@@ -1,11 +1,11 @@
-import updateText from "./utils/updateText";
+import { enableModifierKey, updateShowText } from "./utils/KeyFunctions";
+
 export default class Keyboard {
   constructor(showText) {
     this.keyboard = document.createElement("div");
     this.keyboard.id = "app";
     this.audioElement = document.createElement("audio");
-    this.isCapsOn = false;
-    this.isShiftOn = false;
+    this.modifierKeys = {};
     this.textElement = showText;
     this.keyboard.append(this.audioElement);
   }
@@ -14,11 +14,15 @@ export default class Keyboard {
     return this.keyboard;
   }
 
-  createKey({ keyName, track, subKey = "" }) {
+  createKey({ id, keyName, track, subKey = "", isModifierKey }) {
     const button = document.createElement("button");
     button.textContent = keyName;
-    button.className = keyName;
+    button.className = `${keyName}__${id}`;
     const btnStyle = button.style;
+
+    if (isModifierKey) {
+      this.modifierKeys[keyName] = false;
+    }
 
     const label = document.createElement("label");
     label.textContent = subKey;
@@ -35,15 +39,23 @@ export default class Keyboard {
     labelStyle.margin = "0.5rem";
 
     button.addEventListener("click", () => {
-      this.textElement.value = updateText(
-        this.textElement.value,
+      this.modifierKeys = enableModifierKey({
         keyName,
-        this.isCapsOn,
-        this.isShiftOn
-      );
-      //   this.audioElement.currentTime = 0;
-      //   this.audioElement.src = track;
-      //   this.audioElement.play();
+        isModifierKey,
+        modifierKeys: this.modifierKeys,
+      });
+
+      this.textElement.value = updateShowText({
+        showText: this.textElement.value,
+        keyName,
+        subKey,
+        modifierKeys: this.modifierKeys,
+        isModifierKey,
+      });
+
+      this.audioElement.currentTime = 0;
+      this.audioElement.src = track;
+      this.audioElement.play();
     });
 
     this.keyboard.append(button);
