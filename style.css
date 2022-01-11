@@ -25,26 +25,30 @@
   margin: 1rem 0;
 }
 
-.Tab {
+.Tab__15 {
   grid-column: 1 / 3;
 }
 
-.Back {
+.Back__14 {
   grid-column: 14 / 16;
 }
 
-.Enter {
+.Enter__43 {
   grid-column: 14 / 16;
 }
 
-.Shift {
+.Shift__44 {
   grid-column: 1 / 3;
 }
 
-.Space {
+.Shift__56 {
+  grid-column: 14 / 16;
+}
+
+.Space__60 {
   grid-column: 4 / 11;
 }
 
-.Ctrl {
+.Ctrl__57 {
   grid-column: 1 / 2;
 }
