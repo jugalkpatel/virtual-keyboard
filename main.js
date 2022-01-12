@@ -13,7 +13,9 @@ showText.style.height = "1rem";
 showText.style.padding = "1rem";
 showText.style.paddingLeft = "0.5rem";
 showText.style.border = 0;
-showText.style.borderBottom = "1px solid black";
+showText.style.backgroundColor = "#424242";
+showText.style.color = "#FFFFFF";
+showText.style.borderBottom = "1px solid #FFFFFF";
 
 container.append(showText);
 
