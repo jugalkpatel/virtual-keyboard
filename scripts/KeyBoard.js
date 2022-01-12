@@ -3,7 +3,8 @@ import { enableModifierKey, updateShowText } from "./utils/KeyFunctions";
 export default class Keyboard {
   constructor(showText) {
     this.keyboard = document.createElement("div");
-    this.keyboard.id = "app";
+    this.keyboard.id = "keyboard";
+    this.keyboard.backgroundColor = "#171717";
     this.audioElement = document.createElement("audio");
     this.modifierKeys = {};
     this.textElement = showText;
@@ -32,6 +33,12 @@ export default class Keyboard {
     button.append(label);
     btnStyle.position = "relative";
     btnStyle.textAlign = "center";
+    btnStyle.backgroundColor = "#444444";
+    btnStyle.color = "#EDEDED";
+    btnStyle.border = 0;
+    btnStyle.borderRadius = "0.3rem";
+    btnStyle.cursor = "pointer";
+    btnStyle.fontWeight = "bold";
 
     labelStyle.position = "absolute";
     labelStyle.top = 0;
@@ -56,6 +63,12 @@ export default class Keyboard {
       this.audioElement.currentTime = 0;
       this.audioElement.src = track;
       this.audioElement.play();
+
+      if (isModifierKey && this.modifierKeys[keyName]) {
+        btnStyle.backgroundColor = "#137bee";
+      } else {
+        btnStyle.backgroundColor = "#444444";
+      }
     });
 
     this.keyboard.append(button);
