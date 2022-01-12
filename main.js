@@ -7,7 +7,8 @@ import Keyboard from "./scripts/KeyBoard";
 const container = document.querySelector("#app-container");
 
 const showText = document.createElement("input");
-showText.placeholder = "show text here...";
+showText.className = "show-text";
+showText.placeholder = "Show Text Here...";
 showText.style.height = "1rem";
 showText.style.padding = "1rem";
 showText.style.paddingLeft = "0.5rem";
@@ -29,4 +30,5 @@ keys.forEach(({ id, key: keyName, subKey, isModifierKey }) => {
     isModifierKey,
   });
 });
+
 container.append(keyboard.getKeyboard);
