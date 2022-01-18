@@ -65,8 +65,6 @@ export default class Keyboard {
       this.currentPosition = newCursorPosition;
       this.textElement.value = updatedText;
 
-      console.log(this.currentPosition);
-
       this.audioElement.currentTime = 0;
       this.audioElement.src = track;
       this.audioElement.play();
@@ -76,6 +74,12 @@ export default class Keyboard {
       } else {
         btnStyle.backgroundColor = "#444444";
       }
+
+      this.textElement.focus();
+      this.textElement.setSelectionRange(
+        this.currentPosition,
+        this.currentPosition
+      );
     });
 
     this.keyboard.append(button);
