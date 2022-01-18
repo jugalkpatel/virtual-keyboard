@@ -36,6 +36,14 @@ function updateShowText({
   }
 
   switch (keyName) {
+    case "Enter":
+      showTextArr.splice(newCursorPosition, 0, "\n");
+      newCursorPosition = setCursorPosition(
+        newCursorPosition,
+        showTextArr.length,
+        "INC"
+      );
+      break;
     case "Esc":
       showTextArr.splice(0, showTextArr.length);
       newCursorPosition = 0;

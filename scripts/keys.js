@@ -40,7 +40,7 @@ export default [
   { id: 40, key: "L" },
   { id: 41, key: ";", subKey: ":" },
   { id: 42, key: "'", subKey: `"` },
-  { id: 43, key: "Enter", isModifierKey: true },
+  { id: 43, key: "Enter" },
   { id: 44, key: "Shift", isModifierKey: true },
   { id: 45, key: "Z" },
   { id: 46, key: "X" },
