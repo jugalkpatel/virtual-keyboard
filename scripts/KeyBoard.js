@@ -8,6 +8,7 @@ export default class Keyboard {
     this.audioElement = document.createElement("audio");
     this.modifierKeys = {};
     this.textElement = showText;
+    this.currentPosition = 0;
     this.keyboard.append(this.audioElement);
   }
 
@@ -52,13 +53,19 @@ export default class Keyboard {
         modifierKeys: this.modifierKeys,
       });
 
-      this.textElement.value = updateShowText({
+      const { updatedText, newCursorPosition } = updateShowText({
         showText: this.textElement.value,
         keyName,
         subKey,
         modifierKeys: this.modifierKeys,
         isModifierKey,
+        prevPosition: this.currentPosition,
       });
+
+      this.currentPosition = newCursorPosition;
+      this.textElement.value = updatedText;
+
+      console.log(this.currentPosition);
 
       this.audioElement.currentTime = 0;
       this.audioElement.src = track;
