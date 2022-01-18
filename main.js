@@ -23,7 +23,7 @@ const keyboard = new Keyboard(showText);
 
 keys.forEach(({ id, key: keyName, subKey, isModifierKey }) => {
   const randomNumber = getRandomInt(tracks.length);
-  const randomTrack = "/public/assets/" + tracks[randomNumber];
+  const randomTrack = "/media/" + tracks[randomNumber];
   keyboard.createKey({
     id,
     keyName,
