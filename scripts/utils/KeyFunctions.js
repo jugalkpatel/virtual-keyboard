@@ -52,7 +52,7 @@ function updateShowText({
       break;
     case "Tab":
       for (let i = newCursorPosition; i < prevPosition + 4; i++) {
-        showTextArr[newCursorPosition] = " ";
+        showTextArr.splice(newCursorPosition, 0, " ");
         newCursorPosition = setCursorPosition(
           newCursorPosition,
           showTextArr.length,
@@ -61,7 +61,7 @@ function updateShowText({
       }
       break;
     case "Space":
-      showTextArr[newCursorPosition] = " ";
+      showTextArr.splice(newCursorPosition, 0, " ");
       newCursorPosition = setCursorPosition(
         newCursorPosition,
         showTextArr.length,
