@@ -6,16 +6,16 @@ import Keyboard from "./scripts/KeyBoard";
 
 const container = document.querySelector("#app-container");
 
-const showText = document.createElement("input");
+const showText = document.createElement("textarea");
 showText.className = "show-text";
 showText.placeholder = "Show Text Here...";
 showText.style.height = "1rem";
-showText.style.padding = "1rem";
-showText.style.paddingLeft = "0.5rem";
+showText.style.padding = "0.5rem";
 showText.style.border = 0;
 showText.style.backgroundColor = "#424242";
 showText.style.color = "#FFFFFF";
 showText.style.borderBottom = "1px solid #FFFFFF";
+showText.style.height = "85px";
 
 container.append(showText);
 
